@@ -1,49 +1,44 @@
-🚀 Project Title
+# 🚀 Integra IA
 
 <!-- Add a one-sentence description of your project here. -->
 
-A brief description of what this project does and who it's for.
+Proyecto final para el título de Ingeniería en Informática.
+Este backend forma parte de una solución para un equipo de ventas de una empresa, automatizando reportes y midiendo el impacto de la gestión de cada ejecutivo
 
-<!-- Optional: Add badges for build status, version, license, etc. -->
-
-<p align="center">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status">
-<img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version">
-<img src="https://www.google.com/search?q=https://img.shields.io/badge/license-MIT-blue.svg" alt="License">
-</p>
 
 <!-- A good README should have a visual. Add a screenshot or a GIF here. -->
 
 <!--
 -->
 
-✨ Key Features
+# ✨ Funcionalidades destacables
 
-Feature 1: What's the main selling point?
+Feature 1: Integra un agente de IA para agilizar respuestas de whatsapp.
 
-Feature 2: What's another cool thing it does?
+Feature 2: Captura datos de Google Calendar para medir las acciones destacables.
 
-Feature 3: Why should someone use this?
+Feature 3: Puede ser usado como CRM y como asistente de ventas para identificar rapidamente oportunidades relevantes.
 
-🔧 Installation
+# 🔧 Instalación
 
-A quick guide on how to get your project set up and running.
+Guía rápida para acceder al backend.
 
-# 1. Clone the repository
-git clone [https://github.com/your-username/your-repository.git](https://github.com/your-username/your-repository.git)
+## 1. Clona el repositorio
+git clone [https://github.com/santiRamrez/integra.git](https://github.com/santiRamrez/integra.git)
 
-# 2. Navigate to the project directory
-cd your-repository
+## 2. Cambia al repositorio descargado
+cd integra
 
-# 3. Install dependencies (Example for Python)
+## 3. Instala las dependencias de Python
+Se requiere que cuente con Python version 3.11 o mejor para evitar posibles inconvenientes
+
 pip install -r requirements.txt
-
 
 Usage
 
 A simple example of how to use your project after installation.
 
-# Run the main application (Example for Django)
+## Run the main application (Example for Django)
 python manage.py runserver
 
 

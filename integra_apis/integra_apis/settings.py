@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "register_clients.apps.RegisterClientsConfig",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -76,7 +82,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django_mongodb_backend",
         "HOST": "mongodb+srv://ramrez:Elalfa2025@cluster1.wpc9xxt.mongodb.net/?appName=Cluster1",
-        "NAME": "integra_apis",
+        "NAME": "integra_db",
     },
 }
 
