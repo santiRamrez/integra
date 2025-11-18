@@ -1,19 +1,11 @@
 # 🚀 Integra IA
 
-<!-- Add a one-sentence description of your project here. -->
-
 Proyecto final para el título de Ingeniería en Informática.
 Este backend forma parte de una solución para un equipo de ventas de una empresa, automatizando reportes y midiendo el impacto de la gestión de cada ejecutivo
 
-
-<!-- A good README should have a visual. Add a screenshot or a GIF here. -->
-
-<!--
--->
-
 # ✨ Funcionalidades destacables
 
-Feature 1: Integra un agente de IA para agilizar respuestas de whatsapp.
+Feature 1: Integra un agente de IA para agilizar respuestas de whatsapp y se conecta a Google Drive para acceder base de conocimiento
 
 Feature 2: Captura datos de Google Calendar para medir las acciones destacables.
 
@@ -24,45 +16,43 @@ Feature 3: Puede ser usado como CRM y como asistente de ventas para identificar 
 Guía rápida para acceder al backend.
 
 ## 1. Clona el repositorio
+```bash
 git clone [https://github.com/santiRamrez/integra.git](https://github.com/santiRamrez/integra.git)
-
+```
 ## 2. Cambia al repositorio descargado
+```bash
 cd integra
-
+```
 ## 3. Instala las dependencias de Python
 Se requiere que cuente con Python version 3.11 o mejor para evitar posibles inconvenientes
+Para evitar inconvenientes con los paquetes que tenga instalado en su PC, habilite el entorno virtual de Python antes de instalar las dependencias.
+```bash
+1. python -m venv .venv
+2. .venv/Scripts/Activate.ps1   -  to deactivate just type: deactivate
+3. pip install -r requirements.txt
+4. cd integra_apis
+```
 
-pip install -r requirements.txt
+## Ejecuta el servidor de manera local (Example for Django)
+```bash
+py manage.py runserver
+```
+## Para acceder al panel administrador
 
-Usage
+1. Ve al buscador con la dirección: [http://127.0.0.1:8000/admin/]
+2. Credenciales de admistrador: ramrez / ramrez
 
-A simple example of how to use your project after installation.
-
-## Run the main application (Example for Django)
-python manage.py runserver
-
-
-Or provide a simple code example:
-
-from my_project import main
-
-# Run the awesome function
-main.run_awesome_function()
-
-
-📜 License
-
-<!-- Tell people what they can (and can't) do with your project. -->
+# 📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for more details.
 
-<!-- Optional Sections (Good to add as your project grows)
+# 🤝 Alumnos:
 
-🤝 Contributing
+1. Santiago Ramírez
+2. Leonardo Sandoval
 
-We welcome contributions! Please see our CONTRIBUTING.md for guidelines on how to get started.
+# 🙏 Agradecimientos
 
-🙏 Acknowledgements
-
-A big thanks to [Project/Person] for inspiration or help.
--->
+1. n8n.com [https://ramrez.app.n8n.cloud/workflow/3K5yWTViDqRVhycB]
+2. YouTube Content Creators: Yeshica Jain [https://www.youtube.com/watch?v=HUsxlHhO_Kc&t=134s]  /  Benjamin Cordero [https://www.youtube.com/watch?v=UQmjs3QyziY&t=396s]
+3. Profesor guía: Armin Brum - INACAP 👏
