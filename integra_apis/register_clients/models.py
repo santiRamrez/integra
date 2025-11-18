@@ -108,3 +108,47 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s Profile"
+
+
+class Whatsapp(models.Model):
+    phone = models.CharField(max_length=250)
+    email_fb = models.CharField(max_length=250)
+    pass_fb = models.CharField(max_length=250)
+    id_app_fb = models.CharField(max_length=250)
+    secret_pass_app_fb = models.CharField(max_length=250)
+    token_user_fb = models.CharField(max_length=250)
+    business_acount_id = models.CharField(max_length=250)
+    cliente = models.ForeignKey(
+        Cliente,
+        on_delete=models.CASCADE,  # If a company is deleted, delete its users' profiles
+        null=True,
+        blank=True,
+        related_name="whatsapp_accounts",  # Lets you do cliente.user_profiles.all()
+    )
+
+    class Meta:
+        db_table = "Whatsapp"
+
+    def __str__(self):
+        return self.phone
+
+
+class Chat(models.Model):
+    sessionID = models.CharField(max_length=250, null=True, blank=True)
+    messages = models.JSONField(
+        default=list, help_text="Chats from whatsapp", null=True, blank=True
+    )
+    whatsapp = models.ForeignKey(
+        Whatsapp,
+        on_delete=models.CASCADE,  # If a whatsapp_client is deleted, delete its users' profiles
+        null=True,
+        blank=True,
+        related_name="chats_whatsapp",  # Lets you do cliente.user_profiles.all()
+    )
+
+    class Meta:
+        db_table = "Chat_whatsapp"
+        managed = False
+
+    def __str__(self):
+        return self.sessionID

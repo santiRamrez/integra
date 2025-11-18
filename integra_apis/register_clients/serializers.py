@@ -1,10 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import UserProfile, Cliente
+from .models import UserProfile, Cliente, Chat
 
 
 # Serializer for your Cliente (company)
 class ClienteSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Cliente
         fields = ["id", "name", "legal_id", "industry"]
@@ -56,3 +57,11 @@ class UserSerializer(serializers.ModelSerializer):
         profile.save()
 
         return instance
+
+
+class ChatSerializer(serializers.ModelSerializer):
+    whatsapp = serializers.StringRelatedField(read_only=True)
+
+    class Meta:
+        model = Chat
+        fields = ("sessionID", "messages", "whatsapp")

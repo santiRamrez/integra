@@ -1,7 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from .models import Cliente, Municipality, Pais, Region, Plan, UserProfile
+from .models import (
+    Cliente,
+    Municipality,
+    Pais,
+    Region,
+    Plan,
+    UserProfile,
+    Whatsapp,
+    Chat,
+)
 
 
 @admin.register(Plan)
@@ -77,8 +86,29 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 
-# 4. Register your Cliente model so you can manage it
 @admin.register(Cliente)
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ("name", "legal_id", "email_admin")
     search_fields = ("name", "legal_id")
+
+
+# 4. Register your Cliente model so you can manage it
+@admin.register(Whatsapp)
+class WhatsappAdmin(admin.ModelAdmin):
+    list_display = (
+        "phone",
+        "email_fb",
+        "pass_fb",
+        "id_app_fb",
+        "secret_pass_app_fb",
+        "token_user_fb",
+        "business_acount_id",
+        "cliente",
+    )
+    search_fields = ("phone", "email_fb")
+
+
+@admin.register(Chat)
+class ChatAdmin(admin.ModelAdmin):
+    list_display = ("sessionID", "messages", "whatsapp")
+    search_fields = ("sessionID", "whatsapp")
