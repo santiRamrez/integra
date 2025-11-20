@@ -21,6 +21,9 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
 
+#Manage static files
+RUN python manage.py collectstatic --noinput
+
 # Copy project
 COPY . /app/
 
