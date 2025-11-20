@@ -7,7 +7,10 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /app/integra_apis/
+WORKDIR /app
+
+# Copy project
+COPY . /app/
 
 # Install system dependencies (needed for some python packages usually)
 RUN apt-get update && apt-get install -y \
@@ -21,15 +24,12 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
 
-#Manage static files
-RUN python manage.py collectstatic --noinput
-
-# Copy project
-COPY . /app/
+# Change directory to where manage.py is
+WORKDIR /app/integra_apis
 
 # Collect static files (Ensure you have STATIC_ROOT set in settings.py)
 # Note: For production, you usually want WhiteNoise or a GCS bucket.
-# RUN python manage.py collectstatic --noinput
+RUN SECRET_KEY=building_dummy_key MONGO_URI=mongodb://dummy python manage.py collectstatic --noinput
 
 # Expose port (Cloud Run expects 8080 by default)
 EXPOSE 8080
