@@ -33,4 +33,4 @@ EXPOSE 8080
 
 # Run the application using Gunicorn
 # Replace 'myproject.wsgi:application' with your actual project name
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "myproject.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "integra_apis.wsgi:application"]
