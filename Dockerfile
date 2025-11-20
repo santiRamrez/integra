@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # Set work directory
-WORKDIR /app
+WORKDIR /app/integra_apis
 
 # Install system dependencies (needed for some python packages usually)
 RUN apt-get update && apt-get install -y \
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install python dependencies
-COPY requirements.txt /app/
+COPY requirements.txt /app/integra_apis
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install gunicorn
@@ -33,4 +33,4 @@ EXPOSE 8080
 
 # Run the application using Gunicorn
 # Replace 'myproject.wsgi:application' with your actual project name
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "integra_apis"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "integra_apis.wsgi:application"]
