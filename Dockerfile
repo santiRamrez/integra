@@ -22,7 +22,7 @@ RUN pip install -r requirements.txt
 RUN pip install gunicorn
 
 #Manage static files
-RUN SECRET_KEY=building_dummy_key MONGO_URI=mongodb://building_dummy_address python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput
 
 # Copy project
 COPY . /app/
