@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "integra_apis.apps.MongoAdminConfig",
     "integra_apis.apps.MongoAuthConfig",
     "integra_apis.apps.MongoContentTypesConfig",
+    "corsheaders",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -36,7 +37,8 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -132,3 +134,8 @@ MIGRATION_MODULES = {
     "auth": "mongo_migrations.auth",
     "contenttypes": "mongo_migrations.contenttypes",
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://leonardo01sandoval.github.io/Proyecto_titulo/",
+    "http://localhost:3000",  # Useful for local development
+]
