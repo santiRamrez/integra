@@ -8,8 +8,8 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: us-central1 # Change to your region
-  REPO_NAME: django-repo # The name you gave your Artifact Registry repo
-  SERVICE_NAME: my-django-app # The name you want for your Cloud Run service
+  REPO_NAME: integra-django-repo-gcp # The name you gave your Artifact Registry repo
+  SERVICE_NAME: integra-django-app # The name you want for your Cloud Run service
 
 jobs:
   deploy:
