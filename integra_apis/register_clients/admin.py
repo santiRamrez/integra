@@ -68,17 +68,27 @@ class MunicipalidadAdmin(admin.ModelAdmin):
     autocomplete_fields = ("region",)
 
 
-# 1. Define an "inline" admin for the UserProfile
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
-    can_delete = False  # Don't allow deleting the profile from the user page
-    verbose_name_plural = "Profile"
+    can_delete = False
+    verbose_name_plural = "Profile Info (Company & Job)"
     fk_name = "user"
 
 
-# 2. Define a new User admin that includes the profile
+# 2. Extend the existing UserAdmin to include the Inline
 class UserAdmin(BaseUserAdmin):
     inlines = (UserProfileInline,)
+
+    # Optional: Customize the list view to see data at a glance
+    list_display = ("username", "email", "get_company", "is_staff")
+
+    def get_company(self, instance):
+        # Safe way to get company, in case profile is missing
+        if hasattr(instance, "profile") and instance.profile.cliente:
+            return instance.profile.cliente.name
+        return "-"
+
+    get_company.short_description = "Company"
 
 
 # 3. Re-register the User model with your new admin

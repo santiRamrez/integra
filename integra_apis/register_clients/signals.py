@@ -5,21 +5,11 @@ from .models import UserProfile
 
 
 @receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
+def manage_user_profile(sender, instance, created, **kwargs):
     """
-    Signal to create a UserProfile every time a new User is created.
+    Safely handles profile creation.
+    Uses get_or_create to prevent IntegrityError if the profile
+    already exists (orphaned data or double-signal fire).
     """
     if created:
-        UserProfile.objects.create(user=instance)
-
-
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    """
-    Signal to save the profile every time the User object is saved.
-    """
-    try:
-        instance.profile.save()
-    except UserProfile.DoesNotExist:
-        # This handles a rare case where a user exists but a profile doesn't.
-        UserProfile.objects.create(user=instance)
+        UserProfile.objects.get_or_create(user=instance)

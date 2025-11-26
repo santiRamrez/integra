@@ -28,11 +28,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "rest_framework.authtoken",
     "register_clients.apps.RegisterClientsConfig",
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"],
 }
 
 MIDDLEWARE = [
@@ -136,6 +141,6 @@ MIGRATION_MODULES = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://leonardo01sandoval.github.io/Proyecto_titulo/",
+    "https://leonardo01sandoval.github.io",
     "http://localhost:3000",  # Useful for local development
 ]

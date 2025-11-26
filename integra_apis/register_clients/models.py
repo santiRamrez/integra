@@ -95,7 +95,7 @@ class UserProfile(models.Model):
     # This links the user to their "Company" (the Cliente)
     # We allow null=True, blank=True so you can have
     # "Super Admin" users who don't belong to any company.
-    cliente = models.ForeignKey(
+    empresa = models.ForeignKey(
         Cliente,
         on_delete=models.CASCADE,  # If a company is deleted, delete its users' profiles
         null=True,
