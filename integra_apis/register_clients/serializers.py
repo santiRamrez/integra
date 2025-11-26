@@ -24,7 +24,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserProfile
-        fields = ["id", "job_title", "empresa"]
+        fields = ["id", "job_title", "cliente"]
 
 
 # Serializer for the main User model
