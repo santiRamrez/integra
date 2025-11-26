@@ -145,3 +145,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://leonardo01sandoval.github.io",
     "http://localhost:3000",  # Useful for local development
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://integra-django-app-292672249550.us-central1.run.app",
+    "https://leonardo01sandoval.github.io",
+]
