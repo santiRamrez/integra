@@ -68,11 +68,15 @@ class MunicipalidadAdmin(admin.ModelAdmin):
     autocomplete_fields = ("region",)
 
 
+admin.site.unregister(User)
+
+
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
     can_delete = False
     verbose_name_plural = "Profile Info (Company & Job)"
     fk_name = "user"
+    readonly_fields = ("empresa",)
 
 
 # 2. Extend the existing UserAdmin to include the Inline
@@ -84,15 +88,14 @@ class UserAdmin(BaseUserAdmin):
 
     def get_company(self, instance):
         # Safe way to get company, in case profile is missing
-        if hasattr(instance, "profile") and instance.profile.cliente:
-            return instance.profile.cliente.name
+        if hasattr(instance, "profile") and instance.profile.empresa:
+            return instance.profile.empresa.name
         return "-"
 
     get_company.short_description = "Company"
 
 
 # 3. Re-register the User model with your new admin
-admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 
@@ -116,9 +119,3 @@ class WhatsappAdmin(admin.ModelAdmin):
         "cliente",
     )
     search_fields = ("phone", "email_fb")
-
-
-@admin.register(Chat)
-class ChatAdmin(admin.ModelAdmin):
-    list_display = ("sessionID", "messages", "whatsapp")
-    search_fields = ("sessionID", "whatsapp")
