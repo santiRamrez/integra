@@ -1,7 +1,7 @@
 # 🚀 Integra IA
 
 Proyecto final para el título de Ingeniería en Informática.
-Este backend forma parte de una solución para un equipo de ventas de una empresa, automatizando reportes y midiendo el impacto de la gestión de cada ejecutivo
+Este backend forma parte de una solución de agentes de IA
 
 # ✨ Funcionalidades destacables
 
